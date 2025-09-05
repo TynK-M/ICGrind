@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<!--
+  ICGrind HTML Page
+  -----------------
+  Author: TynK-M
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>ICGrind</title>
+
+    <!-- Fonts -->
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Ubuntu Mono font for monospace aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        /**
+         * Tailwind Configuration
+         * - Enables dark mode via class
+         * - Extends theme with Ubuntu Mono font for monospace styling
+         */
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Ubuntu Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-mono transition-colors duration-300">
+
+    <!-- Header Section -->
+    <div class="flex justify-between items-center mb-6 px-4 py-3">
+        <!-- Page title -->
+        <h1 class="text-3xl font-bold font-mono text-left">ICGrind</h1>
+        <!-- Button for toggling theme (JS handles logic) -->
+        <button id="themeToggle" class="px-3 py-1"></button>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="max-w-md mx-auto p-6">
+
+        <!-- Input Form Section -->
+        <div class="space-y-4">
+
+            <!-- Current Level Input -->
+            <div>
+                <h2 class="font-bold">Current</h2>
+
+                <!-- Current Level -->
+                <label class="block">Level:
+                    <input id="currentLevelInput" type="number" value="1" min="1" max="120"
+                        class="border rounded p-1 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                </label>
+
+                <!-- Current Total XP -->
+                <label class="block">Total XP:
+                    <input id="totalXP" type="number" value="0" min="0"
+                        class="border rounded p-1 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                </label>
+            </div>
+
+            <!-- Target Level Input -->
+            <div>
+                <h2 class="font-bold">Target</h2>
+
+                <!-- Target Level -->
+                <label class="block">Level:
+                    <input id="targetLevelInput" type="number" value="10" min="1" max="120"
+                        class="border rounded p-1 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                </label>
+
+                <!-- Target Total XP -->
+                <label class="block">Total XP:
+                    <input id="targetXPInput" type="number" value="0" min="1"
+                        class="border rounded p-1 w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                </label>
+            </div>
+
+            <!-- Calculate Button -->
+            <button id="calculateBtn" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+                Calculate XP Needed
+            </button>
+
+            <!-- Result Display -->
+            <div id="result" class="mt-4 p-2 rounded"></div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <!-- Handles theme toggling, XP calculations, and result updates -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
